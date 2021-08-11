@@ -7,19 +7,19 @@ function App() {
       id: 'e1',
       title: 'Expence 1',
       amount: 64.12,
-      date: "20/7/2021"
+      date: new Date(20,7,2021)
     },
     {
       id: 'e2',
       title: 'Expence 2',
       amount: 12.12,
-      date: "22/7/2021"
+      date: new Date(20,8,2021)
     },
     {
       id: 'e3',
       title: 'Expence 3',
       amount: 1532.12,
-      date: "24/7/2021"
+      date: new Date(29,7,2021)
     }
   ]
 
