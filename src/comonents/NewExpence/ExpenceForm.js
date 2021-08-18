@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import './ExpenceForm.css';
 const ExpenceForm = () => {
-    // const [enterTitle, setenterTitle] = useState('');
-    // const [enterAmount, setenterAmount] = useState('');
-    // const [enterDate, setenterDate] = useState('');
-    const [userInput, setUserInput ]=useState({
-        enteredTitle: '',
-        enteredAmout: '',
-        enteredDate: ''
-    })
+    const [enterTitle, setenterTitle] = useState('');
+    const [enterAmount, setenterAmount] = useState('');
+    const [enterDate, setenterDate] = useState('');
+    // const [userInput, setUserInput ]=useState({
+    //     enteredTitle: '',
+    //     enteredAmout: '',
+    //     enteredDate: ''
+    // })
     const titeChangeHandler = (event) => {
-        // setenterTitle(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredTitle : event.target.value,
-        })
+        setenterTitle(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle : event.target.value,
+        // })
         //alternative approch to updatinig state
         // console.log(event.target.value);
         // setUserInput((prevState)=>{
@@ -23,11 +23,11 @@ const ExpenceForm = () => {
     };
 
     const amountChangeHandler = (event) => {
-        // setenterAmount(event.target.value);        
-        setUserInput({
-            ...userInput,
-            enteredAmout : event.target.value,
-        })
+        setenterAmount(event.target.value);        
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmout : event.target.value,
+        // })
         //alternative approch to updatinig state
         // setUserInput((prevState)=>{
         //     return{...prevState,enteredAmout : event.target.value}
@@ -35,14 +35,26 @@ const ExpenceForm = () => {
         console.log(event.target.value);
     };
     const dateChangeHandler = (event) => {
-        // setenterDate(event.target.valueAsDate);
-        setUserInput({
-            ...userInput,
-            enteredDate : event.target.valueAsDate,
-        })
+        setenterDate(event.target.valueAsDate);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredDate : event.target.valueAsDate,
+        // })
         console.log(event.target.valueAsDate);
     };
-    return <form>
+
+    // Submit handler
+    const submitHandler =(event)=>{
+        event.preventDefault();
+
+        const expendata = {
+            title: enterTitle,
+            amount : enterAmount,
+            date: new Date(enterDate)
+        };
+        console.log(expendata)
+    };
+    return <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label htmlFor="Title">Title</label>
