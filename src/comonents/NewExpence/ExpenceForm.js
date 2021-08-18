@@ -35,12 +35,12 @@ const ExpenceForm = () => {
         console.log(event.target.value);
     };
     const dateChangeHandler = (event) => {
-        setenterDate(event.target.valueAsDate);
+        setenterDate(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     enteredDate : event.target.valueAsDate,
         // })
-        console.log(event.target.valueAsDate);
+        console.log(event.target.value);
     };
 
     // Submit handler
@@ -52,21 +52,24 @@ const ExpenceForm = () => {
             amount : enterAmount,
             date: new Date(enterDate)
         };
-        console.log(expendata)
+        console.log(expendata);
+        setenterTitle('');
+        setenterDate('');
+        setenterAmount('');
     };
     return <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label htmlFor="Title">Title</label>
-                <input type="text" onChange={titeChangeHandler} />
+                <input type="text" value={enterTitle} onChange={titeChangeHandler} />
             </div>
             <div className="new-expense__control">
                 <label htmlFor="Amount">Amount</label>
-                <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler} />
+                <input type="number" min="0.01" step="0.01" value={enterAmount} onChange={amountChangeHandler} />
             </div>
             <div className="new-expense__control">
                 <label htmlFor="Date">Date</label>
-                <input type="Date" min="2019-01-01" max="2023-12-31" onChange={dateChangeHandler} />
+                <input type="Date" min="2019-01-01" max="2023-12-31" value={enterDate} onChange={dateChangeHandler} />
             </div>
         </div>
 
