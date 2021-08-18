@@ -15,7 +15,11 @@ const ExpenceForm = () => {
             ...userInput,
             enteredTitle : event.target.value,
         })
-        console.log(event.target.value);
+        //alternative approch to updatinig state
+        // console.log(event.target.value);
+        // setUserInput((prevState)=>{
+        //     return { ...prevState, enteredTitle: event.target.value};
+        // });
     };
 
     const amountChangeHandler = (event) => {
@@ -24,6 +28,10 @@ const ExpenceForm = () => {
             ...userInput,
             enteredAmout : event.target.value,
         })
+        //alternative approch to updatinig state
+        // setUserInput((prevState)=>{
+        //     return{...prevState,enteredAmout : event.target.value}
+        // });
         console.log(event.target.value);
     };
     const dateChangeHandler = (event) => {
