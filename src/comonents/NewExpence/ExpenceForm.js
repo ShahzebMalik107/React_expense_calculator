@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ExpenceForm.css';
-const ExpenceForm = () => {
+const ExpenceForm = (props) => {
     const [enterTitle, setenterTitle] = useState('');
     const [enterAmount, setenterAmount] = useState('');
     const [enterDate, setenterDate] = useState('');
@@ -23,7 +23,7 @@ const ExpenceForm = () => {
     };
 
     const amountChangeHandler = (event) => {
-        setenterAmount(event.target.value);        
+        setenterAmount(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     enteredAmout : event.target.value,
@@ -44,15 +44,16 @@ const ExpenceForm = () => {
     };
 
     // Submit handler
-    const submitHandler =(event)=>{
+    const submitHandler = (event) => {
         event.preventDefault();
 
         const expendata = {
             title: enterTitle,
-            amount : enterAmount,
+            amount: enterAmount,
             date: new Date(enterDate)
         };
-        console.log(expendata);
+        
+        props.onSaveExpenceData(expendata);
         setenterTitle('');
         setenterDate('');
         setenterAmount('');
